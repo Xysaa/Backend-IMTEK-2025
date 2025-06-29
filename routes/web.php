@@ -1,15 +1,15 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MatkulController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('matkul',[MatkulController::class,'index'])->name('matkul.index');
-Route::get('matkul/create',[MatkulController::class,'create'])->name('matkul.create');
-Route::post('matkul',[MatkulController::class,'store'])->name('matkul.store');
-Route::get('matkul/{matkul}/edit',[MatkulController::class,'edit'])->name('matkul.edit');
-Route::put('matkul/{matkul}',[MatkulController::class,'update'])->name('matkul.update');
-Route::delete('matkul/{matkul}',[MatkulController::class, 'destroy'])->name('matkul.destroy');
+Route::get ('/mahasiswa', [MahasiswaController::class, 'tampil' ]) ->name('mahasiswa.tampil');
+Route::get ('/mahasiswa/tambah', [MahasiswaController::class, 'tambah' ]) ->name('mahasiswa.tambah');
+Route::post ('/mahasiswa/submit', [MahasiswaController::class, 'submit' ]) ->name('mahasiswa.submit');
+Route::get('/mahasiswa/edit/{id}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+Route::post('/mahasiswa/update/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+Route::delete('/mahasiswa/delete/{id}', [MahasiswaController::class, 'delete'])->name('mahasiswa.delete');
