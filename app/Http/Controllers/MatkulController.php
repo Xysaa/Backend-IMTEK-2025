@@ -26,18 +26,18 @@ class MatkulController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $matkuls=$request->validate([
             'kode_matkul'=>'required',
             'name'=>'required',
             'sks'=>'required|numeric'
         ]);
 
-        $matkuls = Matkul::create([
-            'kode_matkul'=>$request->kode_matkul,
-            'name'=>$request->name,
-            'sks'=>$request->sks
-        ]);
-
+        /* $matkuls = Matkul::create([ */
+        /*     'kode_matkul'=>$request->kode_matkul, */
+        /*     'name'=>$request->name, */
+        /*     'sks'=>$request->sks */
+        /* ]); */
+        Matkul::create($matkuls);
         return redirect()->route('matkul.index')->with('suscces','Matkul Berhasil ditambahkan!');
     }
 
@@ -48,17 +48,17 @@ class MatkulController extends Controller
 
     public function update(Request $request,Matkul $matkul)
     {
-        $request->validate([
+        $validate=$request->validate([
             'kode_matkul'=>'required',
             'name'=>'required',
             'sks'=>'required|numeric'
         ]);
 
-        $matkul->kode_matkul=$request->kode_matkul;
-        $matkul->name= $request->name;
-        $matkul->sks=$request->sks;
+        /* $matkul->kode_matkul=$request->kode_matkul; */
+        /* $matkul->name= $request->name; */
+        /* $matkul->sks=$request->sks; */
 
-        $matkul->update();
+        $matkul->update($validate);
         return redirect()->route('matkul.index')->with('suscces','Matkul Berhasil diupdate!');
 
     }
