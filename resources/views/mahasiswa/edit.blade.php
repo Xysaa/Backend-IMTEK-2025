@@ -14,11 +14,11 @@
     <label> Prodi</label>   
     <input type="text" name="prodi" value="{{$mahasiswa -> prodi}}" class="form-control mb-2" required>
     <label> Angkatan</label>
-    <input type="angkatan" name="angkatan" value="{{$mahasiswa -> angkatan}}" class="form-control mb-2" required>
+    <input type="integer" name="angkatan" value="{{$mahasiswa -> angkatan}}" class="form-control mb-2" required>
     <label> Jenis kelamin</label>
     <select name="jenis_kelamin" value="{{$mahasiswa -> jenis_kelamin}}" class="form-control mb-2" required>
         <option value ="pilih jenis kelamin ">Pilih Jenis Kelamin</option>
-        <option value ="Laki-Laki">Laki-laki</option>
+        <option value ="Laki-laki">Laki-laki</option>
         <option value ="Perempuan">Perempuan</option>
     </select>
 

@@ -16,8 +16,8 @@ return new class extends Migration
             $table-> integer('nim');
             $table->string('nama', 100);
             $table->string('prodi', 255);
-            $table->string('angkatan', 100);
-            $table->string('jenis_kelamin', 100);
+            $table->integer('angkatan');
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
 
             $table->timestamps();
         });

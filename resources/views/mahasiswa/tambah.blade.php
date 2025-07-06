@@ -5,7 +5,18 @@
 <h4>Tambah Data Mahasiswa
  </h4>
 
+
  <form action="{{ route ('mahasiswa.submit')}}" method="post">
+     @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
     @csrf
     <label> NIM</label>
     <input type="number" name="nim" class="form-control mb-2" required>
@@ -14,11 +25,11 @@
     <label> Prodi</label>   
     <input type="text" name="prodi" class="form-control mb-2" required>
     <label> Angkatan</label>
-    <input type="angkatan" name="angkatan" class="form-control mb-2" required>
+    <input type="number" name="angkatan" class="form-control mb-2" required>
     <label> Jenis kelamin</label>
     <select name="jenis_kelamin" class="form-control mb-2" required>
-        <option value ="pilih jenis kelamin ">Pilih Jenis Kelamin</option>
-        <option value ="Laki-Laki">Laki-laki</option>
+        <option value ="">Pilih Jenis Kelamin</option>
+        <option value ="Laki-laki">Laki-laki</option>
         <option value ="Perempuan">Perempuan</option>
     </select>
 
